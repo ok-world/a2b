@@ -38,7 +38,7 @@ echo "Hostname : ${HOST}"
 echo "UserName : ${DB_USER}"
 echo "Password : ${DB_PASS}"
 
-echo mysql --user=${DB_USER} --password=${DB_PASS} --host=${HOST} ${DBNAME}
+echo mysql --user=${DB_USER} --password=${DB_PASS} --host=${HOST} ${DB_NAME}
 
 for script in "${sqllist[@]}"
 do
