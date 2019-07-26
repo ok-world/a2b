@@ -1,0 +1,8 @@
+0 6 * * * php /usr/local/src/a2billing/Cronjobs/currencies_update_yahoo.php
+0 6 1 * * php /usr/local/src/a2billing/Cronjobs/a2billing_subscription_fee.php
+0 * * * * php /usr/local/src/a2billing/Cronjobs/a2billing_notify_account.php
+0 2 * * * php /usr/local/src/a2billing/Cronjobs/a2billing_bill_diduse.php
+0 12 * * * php /usr/local/src/a2billing/Cronjobs/a2billing_batch_process.php
+0 6 * * * php /usr/local/src/a2billing/Cronjobs/a2billing_batch_billing.php
+*/5 * * * * php /usr/local/src/a2billing/Cronjobs/a2billing_batch_autodialer.php
+0 * * * * php /usr/local/src/a2billing/Cronjobs/a2billing_alarm.php
