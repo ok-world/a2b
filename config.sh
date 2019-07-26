@@ -13,6 +13,12 @@ export HOST=localhost
 SED=/bin/sed
 MYSQL=/usr/bin/mysql
 
+cd ${SRC_DIR}
+curl -sS https://getcomposer.org/installer | php
+php composer.phar update
+php composer.phar install
+cd ${SCRIPT_DIR}
+
 ${SED} "s,mya2billing,${DB_NAME},g" ${SRC_DIR}${SQL_PATH}/*.sql -i.back
 rm -f ${SRC_DIR}${SQL_PATH}/*.back
 ${SED} "s,a2billinguser,${DB_USER},g" ${SRC_DIR}${SQL_PATH}/*.sql -i.user
