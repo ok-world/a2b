@@ -23,7 +23,7 @@ rm -f ${SRC_DIR}${SQL_PATH}/*.pass
 ${MYSQL} -u root < ${SRC_DIR}${SQL_PATH}/a2billing-createdb-user.sql
 
 cp ${SCRIPT_DIR}/install-db.sh ${SRC_DIR}${SQL_PATH}/
-( cd ${SRC_DIR}${SQL_PATH} ./install-db.sh )
+( cd ${SRC_DIR}${SQL_PATH}; ./install-db.sh )
 
 ${SED} "s,a2billing_dbuser,${DB_USER},g" < ${SCRIPT_DIR}/a2billing.conf | ${SED} "s,a2billing_dbpassword,${DB_PASS},g" | ${SED} "s,a2billing_dbname,${DB_NAME},g" > ${SRC_DIR}/a2billing.conf
 
