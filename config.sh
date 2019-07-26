@@ -65,16 +65,16 @@ ln -s /usr/local/src/a2billing/AGI/lib /usr/share/asterisk/agi-bin/lib
 chmod +x /usr/share/asterisk/agi-bin/a2billing.php
 chmod +x /usr/share/asterisk/agi-bin/a2billing_monitoring.php
 
-mkdir /var/www/a2billing
-chown www-data:www-data /var/www/a2billing
+#mkdir /var/www/a2billing
+#chown www-data:www-data /var/www/a2billing
 
 mkdir -p /var/lib/a2billing/script
 mkdir -p /var/run/a2billing
 
-ln -s /usr/local/src/a2billing/admin /var/www/a2billing/admin
-ln -s /usr/local/src/a2billing/agent /var/www/a2billing/agent
-ln -s /usr/local/src/a2billing/customer /var/www/a2billing/customer
-ln -s /usr/local/src/a2billing/common /var/www/a2billing/common
+ln -s /usr/local/src/a2billing/admin /var/www/html/admin
+ln -s /usr/local/src/a2billing/agent /var/www/html/agent
+ln -s /usr/local/src/a2billing/customer /var/www/html/customer
+ln -s /usr/local/src/a2billing/common /var/www/html/common
 
 chmod 755 /usr/local/src/a2billing/admin/templates_c
 chmod 755 /usr/local/src/a2billing/customer/templates_c
