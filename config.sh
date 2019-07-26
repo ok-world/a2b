@@ -19,6 +19,7 @@ ${SED} "s,a2billinguser,${DB_USER},g" ${SRC_DIR}${SQL_PATH}/*.sql -i.user
 rm -f ${SRC_DIR}${SQL_PATH}/*.user
 ${SED} "s,a2billing,${DB_PASS},g" ${SRC_DIR}${SQL_PATH}/*.sql -i.pass
 rm -f ${SRC_DIR}${SQL_PATH}/*.pass
+echo 'FLUSH PRIVILEGES;' >> ${SRC_DIR}${SQL_PATH}/a2billing-createdb-user.sql
 
 ${MYSQL} -u root < ${SRC_DIR}${SQL_PATH}/a2billing-createdb-user.sql
 
