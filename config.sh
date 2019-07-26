@@ -13,12 +13,6 @@ export HOST=localhost
 SED=/bin/sed
 MYSQL=/usr/bin/mysql
 
-cd ${SRC_DIR}
-curl -sS https://getcomposer.org/installer | php
-php composer.phar update
-php composer.phar install
-cd ${SCRIPT_DIR}
-
 ${SED} "s,mya2billing,${DB_NAME},g" ${SRC_DIR}${SQL_PATH}/*.sql -i.back
 rm -f ${SRC_DIR}${SQL_PATH}/*.back
 ${SED} "s,a2billinguser,${DB_USER},g" ${SRC_DIR}${SQL_PATH}/*.sql -i.user
@@ -31,6 +25,12 @@ ${MYSQL} -u root < ${SRC_DIR}${SQL_PATH}/a2billing-createdb-user.sql
 
 cp ${SCRIPT_DIR}/install-db.sh ${SRC_DIR}${SQL_PATH}/
 ( cd ${SRC_DIR}${SQL_PATH}; ./install-db.sh )
+
+cd ${SRC_DIR}
+curl -sS https://getcomposer.org/installer | php
+php composer.phar update
+php composer.phar install
+cd ${SCRIPT_DIR}
 
 ${SED} "s,a2billing_dbuser,${DB_USER},g" < ${SCRIPT_DIR}/a2billing.conf | ${SED} "s,a2billing_dbpassword,${DB_PASS},g" | ${SED} "s,a2billing_dbname,${DB_NAME},g" > ${SRC_DIR}/a2billing.conf
 
