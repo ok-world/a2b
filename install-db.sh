@@ -1,5 +1,6 @@
 #!/bin/bash
 SCRIPT_DIR=$(dirname $0)
+export MYSQL_PWD=${DB_PASS}
 sqllist=(
     a2billing-schema-v1.4.0.sql UPDATE-a2billing-v1.4.0-to-v1.4.1.sql
     UPDATE-a2billing-v1.4.1-to-v1.4.2.sql UPDATE-a2billing-v1.4.2-to-v1.4.3.sql
@@ -42,7 +43,7 @@ echo mysql --user=${DB_USER} --password=${DB_PASS} --host=${HOST} ${DB_NAME}
 
 for script in "${sqllist[@]}"
 do
-	cat $SCRIPT_DIR/$script|mysql --user=${DB_USER} --password=${DB_PASS} --host=${HOST} ${DB_NAME}
+	cat $SCRIPT_DIR/$script|mysql --user=${DB_USER} --host=${HOST} ${DB_NAME}
 done
 
 # All done, exit ok

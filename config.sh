@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(dirname $0)
+SCRIPT_DIR=/usr/local/src/a2billing/ok-a2b
 
 export SRC_DIR=/usr/local/src/a2billing
 export DB_NAME=cia2b
@@ -19,6 +19,12 @@ ${SED} "s,a2billinguser,${DB_USER},g" ${SRC_DIR}${SQL_PATH}/*.sql -i.user
 rm -f ${SRC_DIR}${SQL_PATH}/*.user
 ${SED} "s,a2billing,${DB_PASS},g" ${SRC_DIR}${SQL_PATH}/*.sql -i.pass
 rm -f ${SRC_DIR}${SQL_PATH}/*.pass
+${SED} "s,0000-00-00 00:00:00,1971-01-01 00:00:01,g" ${SRC_DIR}${SQL_PATH}/*.sql -i.back
+rm -f ${SRC_DIR}${SQL_PATH}/*.back
+${SED} "s,ALTER TABLE cc_config CHANGE config_value config_value VARCHAR( 100 );,ALTER TABLE cc_config CHANGE config_value config_value VARCHAR( 300 );,g" ${SRC_DIR}${SQL_PATH}/UPDATE-a2billing-v1.4.0-to-v1.4.1.sql
+rm -f ${SRC_DIR}${SQL_PATH}/*.back
+${SED} 's,`config_description` text,`config_description` varchar(500),g' ${SRC_DIR}${SQL_PATH}/a2billing-schema-v1.4.0.sql
+rm -f ${SRC_DIR}${SQL_PATH}/*.back
 echo 'FLUSH PRIVILEGES;' >> ${SRC_DIR}${SQL_PATH}/a2billing-createdb-user.sql
 
 ${MYSQL} -u root < ${SRC_DIR}${SQL_PATH}/a2billing-createdb-user.sql
