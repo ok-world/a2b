@@ -16,11 +16,14 @@ Steps are:
   - curl
   - git
 - **Download a2billing:**
-  - this command string will be added
+  - git clone https://github.com/Star2Billing/a2billing.git /usr/local/src/a2billing
 - **Download this script:**
-  - this command string will be added
+  - git clone https://github.com/ok-world/a2b.git /usr/local/src/a2billing/ok-a2b
 - **Run this script:**
-  - this command string will be added
+  - cd /usr/local/src/a2billing/ok-a2b
+  - ./config.sh
+
+You need root priveleges to do commands above.
 
 After those steps you have basic installation of A2Billing system on your **_Ubuntu 18_** server.
 
@@ -31,5 +34,5 @@ Remember that it has default account after installation process:
 Login : root
 Password : changepassword
 ```
-**Do not forget to change it after installation.**
+**Do not forget to change default password after installation.**
 
