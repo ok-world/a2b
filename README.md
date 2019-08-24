@@ -23,7 +23,7 @@ Steps are:
   - cd /usr/local/src/a2billing/ok-a2b
   - ./config.sh
 
-You need root priveleges to do commands above.
+You need root priveleges to run commands above.
 
 After those steps you have basic installation of A2Billing system on your **_Ubuntu 18_** server.
 
