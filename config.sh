@@ -25,6 +25,7 @@ ${SED} "s,ALTER TABLE cc_config CHANGE config_value config_value VARCHAR( 100 );
 rm -f ${SRC_DIR}${SQL_PATH}/*.back
 ${SED} 's,`config_description` text,`config_description` varchar(500),g' ${SRC_DIR}${SQL_PATH}/a2billing-schema-v1.4.0.sql
 rm -f ${SRC_DIR}${SQL_PATH}/*.back
+echo "ALTER TABLE cc_ratecard CHANGE musiconhold musiconhold char(100) NOT NULL DEFAULT '';" >> ${SRC_DIR}${SQL_PATH}/a2billing-schema-v1.4.0.sql
 echo 'FLUSH PRIVILEGES;' >> ${SRC_DIR}${SQL_PATH}/a2billing-createdb-user.sql
 
 ${MYSQL} -u root < ${SRC_DIR}${SQL_PATH}/a2billing-createdb-user.sql
