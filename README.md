@@ -1,7 +1,7 @@
 # a2b
 This script makes initial configuration of your A2Billing system.</br>
 Steps are:
-- * **Install packets:**
+- **_Install packets:_**
   - apache2
   - libapache2-mod-php
   - mysql-server
@@ -15,11 +15,11 @@ Steps are:
   - unzip
   - curl
   - git
-- * **Download a2billing:**
+- **_Download a2billing:_**
   - git clone https://github.com/Star2Billing/a2billing.git /usr/local/src/a2billing
-- * **Download this script:**
+- **_Download this script:_**
   - git clone https://github.com/ok-world/a2b.git /usr/local/src/a2billing/ok-a2b
-- * **Run this script:**
+- **_Run this script:_**
   - cd /usr/local/src/a2billing/ok-a2b
   - ./config.sh
 
