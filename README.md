@@ -37,7 +37,7 @@ Password : changepassword
 **Do not forget to change default password after installation.**
 
 # What does this script do:
-- fixes a ot of errors in official SQL files.
+- fixes a lot of errors in official SQL files.
 - generates password for DB (I think it's not good idea to use same password on all servers in the world)
 - fixes errors from official installation guide
 - makes easy installation procedure
